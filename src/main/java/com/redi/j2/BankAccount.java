@@ -17,7 +17,7 @@ public class BankAccount {
     }
 
     public double withdrawMoney(double amount) {
-        if (balance < amount) return 0;
+        if (amount <= 0 || balance < amount) return 0;
         balance -= amount;
         return amount;
     }

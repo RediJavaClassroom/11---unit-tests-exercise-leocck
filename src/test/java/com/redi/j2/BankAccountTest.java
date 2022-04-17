@@ -75,4 +75,24 @@ class BankAccountTest {
         // and - the balance should not change at all
         assertEquals(money, account.getCurrentBalance(), "Balance cannot be changed if withdrawal is rejected");
     }
+
+    @Test
+    void shouldNotWithdrawMoneyIfAmountIsInvalid() {
+
+        // given - an account with some money
+        double money = 100.0;
+        BankAccount account = new BankAccount(money);
+
+        // and - an amount we want to withdraw
+        double amount = -100;
+
+        // when - we make the withdrawal
+        double withdrawnMoney = account.withdrawMoney(amount);
+
+        // then - the withdrawal should not happen
+        assertEquals(0, withdrawnMoney, "The withdrawal should not happen if the specified amount is negative");
+
+        // and - the balance should not change at all
+        assertEquals(money, account.getCurrentBalance(), "Balance cannot be changed if withdrawal is rejected");
+    }
 }
