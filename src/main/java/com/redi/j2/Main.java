@@ -1,5 +1,9 @@
 package com.redi.j2;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,5 +19,11 @@ public class Main {
             highest = Math.max(highest, number);
         }
         return highest;
+    }
+
+    public boolean hasDuplicates(List<Integer> list) {
+        if (list == null) return false;
+        Set<Integer> set = new HashSet<>(list);
+        return list.size() != set.size();
     }
 }
