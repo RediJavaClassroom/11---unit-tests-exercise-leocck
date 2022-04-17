@@ -37,6 +37,23 @@ class BankAccountTest {
     }
 
     @Test
+    void shouldNotMakeDepositWithInvalidAmount() {
+
+        // given - an account with some money
+        double money = 100.0;
+        BankAccount account = new BankAccount(money);
+
+        // and - an amount we want to deposit
+        double deposit = -50.0;
+
+        // when - we make the deposit
+        account.depositMoney(deposit);
+
+        // then - the balance should not change
+        assertEquals(money, account.getCurrentBalance(), "The deposit should not be performed with an invalid amount "+deposit);
+    }
+
+    @Test
     void shouldWithdrawMoneyIfThereIsEnoughBalance() {
 
         // given - an account with some money
