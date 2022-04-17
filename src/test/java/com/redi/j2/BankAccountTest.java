@@ -20,6 +20,19 @@ class BankAccountTest {
     }
 
     @Test
+    void shouldStartWithZeroBalanceIfAmountIsInvalid() {
+
+        // given - the initial amount of money
+        double money = -100.0;
+
+        // when - we create the account
+        BankAccount account = new BankAccount(money);
+
+        // then - the money should be in the account
+        assertEquals(0, account.getCurrentBalance(), "Account cannot have negative starting balance");
+    }
+
+    @Test
     void shouldAddDepositToBalance() {
 
         // given - an account with some money

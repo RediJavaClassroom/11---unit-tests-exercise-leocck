@@ -5,7 +5,7 @@ public class BankAccount {
     private double balance;
 
     public BankAccount(double balance) {
-        this.balance = balance;
+        this.balance = Math.max(balance, 0);
     }
 
     public double getCurrentBalance() {
